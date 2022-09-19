@@ -4,14 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dist/app.js",
+    "serve": "nodemon ./src/app.ts",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "mongoose": "^6.6.1"
+    "helmet": "^6.0.0",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.6.1",
+    "prettylink": "^1.0.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",
