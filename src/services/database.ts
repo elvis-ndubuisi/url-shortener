@@ -1,9 +1,8 @@
 import { connect } from "mongoose";
-import { connected } from "process";
 import logger from "../utils/logger";
 
 const connectDb = async () => {
-  await connect("mongodb://localhost:27017/url-shortener")
+  await connect(`${process.env.DB_URI}`)
     .then(() => {
       logger.info("database connected");
     })
