@@ -12,16 +12,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/valid-url": "^1.0.3",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "helmet": "^6.0.0",
     "http-errors": "^2.0.0",
     "mongoose": "^6.6.1",
-    "prettylink": "^1.0.0",
+    "nanoid": "^3.3.4",
+    "valid-url": "^1.0.9",
     "winston": "^3.8.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",
+    "@types/http-errors": "^1.8.2",
     "@types/node": "^18.7.18",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
