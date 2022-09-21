@@ -30,7 +30,7 @@ app.use((0, helmet_1.default)());
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
-    res.status(200).send("working");
+    res.status(200).send("url shortener");
 });
 app.post("/", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { url } = req.body;
@@ -47,7 +47,7 @@ app.post("/", (req, res, next) => __awaiter(void 0, void 0, void 0, function* ()
             let urlCode = (0, nanoid_1.nanoid)(8);
             const urlData = new url_model_1.default({
                 longUrl: url,
-                shortUrl: `${process.env.BASE_URL}/${(0, nanoid_1.nanoid)(8)}`,
+                shortUrl: `${process.env.BASE_URL}/${urlCode}`,
                 urlCode,
             });
             // save link
