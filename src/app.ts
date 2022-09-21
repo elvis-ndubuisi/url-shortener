@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req: Request, res: Response) => {
-  res.status(200).send("working");
+  res.status(200).send("url shortener");
 });
 
 app.post("/", async (req: Request, res: Response, next: NextFunction) => {
@@ -38,7 +38,7 @@ app.post("/", async (req: Request, res: Response, next: NextFunction) => {
       let urlCode = nanoid(8);
       const urlData = new Url({
         longUrl: url,
-        shortUrl: `${process.env.BASE_URL}/${nanoid(8)}`,
+        shortUrl: `${process.env.BASE_URL}/${urlCode}`,
         urlCode,
       });
       // save link
@@ -54,7 +54,6 @@ app.post("/", async (req: Request, res: Response, next: NextFunction) => {
 app.get("/:code", async (req: Request, res: Response, next: NextFunction) => {
   try {
     const url = await Url.findOne({ urlCode: req.params.code });
-    logger.info(req.params);
     if (!url) throw new httpError.NotFound("url not avaliable");
     return res.redirect(url.longUrl);
   } catch (error) {
