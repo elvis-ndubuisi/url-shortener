@@ -54,6 +54,7 @@ app.post("/", async (req: Request, res: Response, next: NextFunction) => {
 app.get("/:code", async (req: Request, res: Response, next: NextFunction) => {
   try {
     const url = await Url.findOne({ urlCode: req.params.code });
+    logger.info(url)
     if (!url) throw new httpError.NotFound("url not avaliable");
     return res.redirect(url.longUrl);
   } catch (error) {
