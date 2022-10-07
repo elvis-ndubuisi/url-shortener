@@ -1,4 +1,5 @@
 import connectDb from "./services/database";
+import cors from "cors";
 import dotenv from "dotenv";
 import express, { Application, NextFunction, Request, Response } from "express";
 import httpError from "http-errors";
@@ -17,6 +18,7 @@ const server: Server = createServer(app);
 dotenv.config();
 
 app.use(helmet());
+app.use(cors({ origin: process.env.ORIGIN, optionsSuccessStatus: 200 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
