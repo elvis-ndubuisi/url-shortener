@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const logger_1 = __importDefault(require("../utils/logger"));
 const connectDb = () => __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, mongoose_1.connect)(`${process.env.DB_URI}`)
+    yield (0, mongoose_1.connect)(`${process.env.DB_URI}`, { dbName: "UrlShortener" })
         .then(() => {
         logger_1.default.info("database connected");
     })
