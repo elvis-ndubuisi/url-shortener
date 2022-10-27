@@ -27,6 +27,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.post("/", async (req: Request, res: Response, next: NextFunction) => {
+  logger.info("shorten url");
   const { url } = req.body;
   if (!url) throw new httpError.BadRequest("provide a valid url"); //if no url was recieved.
 
