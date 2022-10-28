@@ -18,7 +18,7 @@ const server: Server = createServer(app);
 dotenv.config();
 
 app.use(helmet());
-app.use(cors({ origin: process.env.ORIGIN, optionsSuccessStatus: 200 }));
+app.use(cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
